@@ -17,11 +17,11 @@ npm run build
 
 ## Personalizar antes de publicar
 
-- Edite `src/content.js` para definir título, nome do produto e link real do checkout.
-- Atualize o nome da marca, capítulos, perguntas e textos em `src/main.jsx`.
+- Edite `src/content.js` para informar o link real do checkout e seu email de contato.
+- Atualize o título, nome da marca, capítulos, perguntas e textos em `src/main.jsx`.
 - O endereço de pagamento está como `https://pay.kiwify.com.br/SEU-LINK-AQUI`; troque pelo link da sua plataforma.
 - O simulador calcula apenas o total dos aportes em 12 meses; não inclui juros nem inflação.
-- O email de contato do FAQ está como `contato@planoemdia.com.br` e deve ser substituído pelo seu.
+- O email de contato está como `contato@exemplo.com.br` e deve ser substituído pelo seu.
 
 ## Skills aplicadas
 
