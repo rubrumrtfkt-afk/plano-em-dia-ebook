@@ -220,7 +220,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .contents-stamp b, .contents-stamp small { display: block; }
 .contents-stamp b { font-size: 16px; color: var(--texto); }
 .contents-stamp small { font-size: 14px; color: var(--texto-suave); margin-top: 3px; }
-.chapter-list { border-top: 1px solid var(--neutro); }
+.chapter-list { border-top: 1px solid var(--neutro); list-style: none; margin: 0; padding: 0; }
 .chapter-row { display: grid; grid-template-columns: 76px 1fr 30px; gap: 15px; align-items: center; padding: 18px 8px; border-bottom: 1px solid var(--neutro); transition: padding 180ms ease-out, background 180ms ease-out; }
 .chapter-row:hover { padding-left: 13px; padding-right: 3px; background: rgba(232, 246, 238, .6); }
 .chapter-number { align-self: start; padding-top: 3px; font: 700 14px Manrope, sans-serif; color: var(--verde-escuro); }
@@ -428,7 +428,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .footer-brand { font-size: 17px; }
   .mobile-buy {
     position: fixed; z-index: 19; left: 12px; right: 12px; bottom: 12px; display: flex; align-items: center; justify-content: center;
-    gap: 12px; min-height: 56px; padding: 14px 20px; border-radius: 14px; background: var(--verde-escuro); color: #FFFFFF; font-size: 18px;
+    gap: 12px; min-height: 56px; padding: 14px 20px; border-radius: 14px; background: var(--verde-escuro); color: #FFFFFF; font-size: 18px; border: 2px solid rgba(255, 255, 255, .45);
     font-weight: 700; box-shadow: 0 9px 24px rgba(23, 63, 46, .3); transition: transform 150ms ease-out, background 170ms ease-out;
   }
   .mobile-buy:active { transform: scale(.98); background: #185A3E; }

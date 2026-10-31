@@ -1,29 +1,21 @@
-# Plano em Dia — landing page do ebook
+# Plano em Dia — landing page do guia interativo
 
-Landing page responsiva em português para apresentar e vender um ebook de planejamento financeiro. Feita com React e Vite, com paleta azul, animações leves, simulador interativo de aportes e FAQ em acordeão.
+Landing page responsiva em português que apresenta e vende o **Plano em Dia**, um guia interativo de educação financeira em cards (prefácio + 9 capítulos, diagnóstico sem julgamento e plano de 30 dias). Feita com React e Vite, no estilo A: claro e acolhedor, com tons pastel e verdes. O link da bio do TikTok aponta para cá, e a compra acontece no checkout da Kiwify.
+
+⚠️ Este repositório é **público**. Os textos dos cards do produto ficam em outro repositório, privado. Aqui entram só as descrições de venda.
 
 ## Começar localmente
 
 ```bash
 npm install
 npm run dev
-```
-
-Para gerar a versão de produção:
-
-```bash
-npm run build
+npm test        # testes (paleta, tamanhos de letra, textos)
+npm run build   # versão de produção
 ```
 
 ## Personalizar antes de publicar
 
-- Edite `src/content.js` para informar o link real do checkout e seu email de contato.
-- Atualize o título, nome da marca, capítulos, perguntas e textos em `src/main.jsx`.
-- O endereço de pagamento está como `https://pay.kiwify.com.br/SEU-LINK-AQUI`; troque pelo link da sua plataforma.
-- O simulador calcula apenas o total dos aportes em 12 meses; não inclui juros nem inflação.
-- O email de contato está como `contato@exemplo.com.br` e deve ser substituído pelo seu.
-
-## Skills aplicadas
-
-- `emil-design-eng` — hierarquia visual, feedback ao toque, curvas de animação, movimentos curtos e respeito a `prefers-reduced-motion`.
-- `remotion-markup` — ritmo, entrada escalonada e composição da ilustração do ebook; a página usa CSS/React no navegador, não o renderizador Remotion.
+- Em `src/content.js`, troque o link real do checkout da Kiwify e o e-mail de contato. Se o placeholder `SEU-LINK-AQUI` continuar lá, o deploy falha de propósito.
+- Os textos de venda (benefícios, capítulos, perguntas frequentes) ficam em `src/dados.js`.
+- O simulador soma só os aportes de 12 meses, sem juros nem inflação.
+- A publicação é feita pelo GitHub Pages a cada push na `main` (`.github/workflows/deploy.yml`).
