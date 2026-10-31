@@ -73,3 +73,22 @@ test('nenhuma regra de texto fica abaixo de 12px em qualquer tela', () => {
     .filter(([sel, px]) => px < 12 && !sel.includes('.phone-'));
   expect(pequenos).toEqual([]);
 });
+
+describe('revisão final: toque e foco', () => {
+  it('remove o destaque azul padrão do Android ao tocar', () => {
+    expect(css).toMatch(/-webkit-tap-highlight-color:\s*(transparent|rgba\(46,\s*158,\s*107)/);
+  });
+  it('links e controles de toque têm pelo menos 48px', () => {
+    const regra = (sel) => {
+      const inicio = css.indexOf(`${sel} {`);
+      return inicio < 0 ? '' : css.slice(inicio, css.indexOf('}', inicio));
+    };
+    expect(regra('.faq-aside a')).toMatch(/min-height:\s*48px/);
+    expect(regra('.subtle-link')).toMatch(/min-height:\s*48px/);
+    expect(regra('.simulator-card input[type=range]')).toMatch(/height:\s*48px/);
+  });
+  it('foco visível em branco sobre as seções verde-escuras', () => {
+    expect(css).toMatch(/\.offer-section :focus-visible[^{]*\{[^}]*outline-color:\s*#FFFFFF/i);
+    expect(css).toMatch(/\.simulator-section :focus-visible[^{]*\{[^}]*outline-color:\s*#FFFFFF/i);
+  });
+});
