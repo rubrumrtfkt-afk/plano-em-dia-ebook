@@ -30,6 +30,10 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Run tests (falha se o checkout ainda for o placeholder)
+        run: npm test
+        env:
+          CI: 'true'
       - name: Build site
         run: npm run build
       - name: Configure GitHub Pages
