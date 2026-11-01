@@ -251,7 +251,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .faq-intro > p { color: var(--texto-suave); font-size: 17px; line-height: 1.7; max-width: 300px; }
 .faq-aside { display: flex; gap: 10px; align-items: flex-start; margin-top: 36px; color: var(--texto-suave); }
 .faq-aside > span { font-size: 15px; line-height: 1.7; }
-.faq-aside a { display: inline-flex; align-items: center; gap: 3px; color: var(--verde-escuro); font-weight: 700; min-height: 48px; }
+.faq-aside a { display: inline-flex; align-items: center; gap: 3px; color: var(--verde-escuro); font-weight: 700; min-height: 48px; overflow-wrap: anywhere; }
 .faq-list { border-top: 1px solid var(--neutro); }
 .faq-item { border-bottom: 1px solid var(--neutro); }
 .faq-item > button {

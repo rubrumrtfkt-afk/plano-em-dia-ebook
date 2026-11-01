@@ -59,3 +59,10 @@ test('não há botão de compra fixo no rodapé do celular', () => {
   const { container } = render(<App />);
   expect(container.querySelector('.mobile-buy')).toBeNull();
 });
+
+test('contato do FAQ mostra o e-mail visível e com mailto', () => {
+  render(<App />);
+  const link = screen.getByRole('link', { name: new RegExp(ebook.contactEmail.replace(/\./g, '\.')) });
+  expect(link).toHaveAttribute('href', `mailto:${ebook.contactEmail}`);
+  expect(link.textContent).toContain(ebook.contactEmail);
+});
