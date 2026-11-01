@@ -100,7 +100,6 @@ export function App() {
       </main>
 
       <footer className="site-footer"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><span/><span/><span/></span><span>plano<span className="brand-dot">.</span>em dia</span></a><span>Conteúdo educativo. Não é recomendação de investimento.</span><span>© 2026 Plano em Dia</span></footer>
-      <a className="mobile-buy" href="#oferta">Quero meu guia <ArrowRight size={19}/></a>
     </>
   );
 }

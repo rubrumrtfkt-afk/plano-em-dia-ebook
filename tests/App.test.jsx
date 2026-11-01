@@ -54,3 +54,8 @@ test('simulador mantém o aviso de soma simples', () => {
   render(<App />);
   expect(screen.getByText('Soma simples dos aportes, sem considerar juros ou inflação.')).toBeInTheDocument();
 });
+
+test('não há botão de compra fixo no rodapé do celular', () => {
+  const { container } = render(<App />);
+  expect(container.querySelector('.mobile-buy')).toBeNull();
+});

@@ -299,7 +299,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .footer-brand .brand-mark span { background: #7FCBA4; }
 .footer-brand .brand-dot { color: #7FCBA4; }
 .site-footer > span { font-size: 14px; }
-.mobile-buy { display: none; }
 
 .reveal { opacity: 0; transform: translateY(12px); transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); transition-delay: var(--reveal-delay, 0ms); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -429,16 +428,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .offer-notes { flex-direction: column; gap: 10px; margin-top: 18px; font-size: 15px; }
   .offer-notes i { display: none; }
   .offer-decoration { opacity: .15; right: -100px; top: 45%; transform: scale(.7); }
-  .site-footer { padding: 20px 20px 96px; min-height: 110px; display: grid; grid-template-columns: 1fr auto; gap: 13px; }
+  .site-footer { padding: 20px 20px 24px; min-height: 110px; display: grid; grid-template-columns: 1fr auto; gap: 13px; }
   .site-footer > span { font-size: 14px; }
   .site-footer > span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
   .footer-brand { font-size: 17px; }
-  .mobile-buy {
-    position: fixed; z-index: 19; left: 12px; right: 12px; bottom: 12px; display: flex; align-items: center; justify-content: center;
-    gap: 12px; min-height: 56px; padding: 14px 20px; border-radius: 14px; background: var(--verde-escuro); color: #FFFFFF; font-size: 18px; border: 2px solid rgba(255, 255, 255, .45);
-    font-weight: 700; box-shadow: 0 9px 24px rgba(23, 63, 46, .3); transition: transform 150ms ease-out, background 170ms ease-out;
-  }
-  .mobile-buy:active { transform: scale(.98); background: #185A3E; }
 }
 
 @media (prefers-reduced-motion: reduce) {
