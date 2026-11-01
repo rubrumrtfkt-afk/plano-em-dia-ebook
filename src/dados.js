@@ -58,4 +58,8 @@ export const faqs = [
     'Posso fazer no meu ritmo?',
     'Sim. Você avança card a card, para quando quiser e pode voltar a qualquer capítulo depois.',
   ],
+  [
+    'O pagamento é seguro?',
+    'Sim. Todo o processamento é feito pela Kiwify, com pagamento via Pix, cartão de crédito ou boleto.',
+  ],
 ];
