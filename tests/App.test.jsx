@@ -45,6 +45,18 @@ test('botão de compra usa ebook.checkoutUrl', () => {
   expect(compra).toHaveAttribute('href', ebook.checkoutUrl);
 });
 
+test('botão de compra leva a origem da visita (utm_source) ao checkout', () => {
+  window.history.replaceState(null, '', '/?utm_source=tiktok');
+  try {
+    render(<App />);
+    const href = screen.getByRole('link', { name: /Quero meu guia interativo/ }).getAttribute('href');
+    expect(new URL(href).searchParams.get('utm_source')).toBe('tiktok');
+    expect(href.startsWith(ebook.checkoutUrl)).toBe(true);
+  } finally {
+    window.history.replaceState(null, '', '/');
+  }
+});
+
 test('mostra o celular com um card de pergunta no hero', () => {
   render(<App />);
   expect(screen.getByRole('img', { name: /celular/i })).toBeInTheDocument();

@@ -5,6 +5,7 @@ import {
   LayoutList, Menu, MessageCircleQuestion, MoveUpRight, ShieldCheck, Smartphone, X,
 } from 'lucide-react';
 import { ebook } from './content';
+import { checkoutComOrigem } from './utm';
 import { beneficios, capitulos, faqs } from './dados';
 import MockupCelular from './MockupCelular';
 import './styles.css';
@@ -30,7 +31,7 @@ export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const annual = monthly * 12;
   const formatCurrency = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(value);
-  const checkout = ebook.checkoutUrl;
+  const checkout = checkoutComOrigem(ebook.checkoutUrl, typeof window === 'undefined' ? '' : window.location.search);
 
   return (
     <>
