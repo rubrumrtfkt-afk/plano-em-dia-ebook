@@ -31,7 +31,7 @@ export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const annual = monthly * 12;
   const formatCurrency = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(value);
-  const checkout = checkoutComOrigem(ebook.checkoutUrl, typeof window === 'undefined' ? '' : window.location.search);
+  const checkout = checkoutComOrigem(ebook.checkoutUrl, typeof window === 'undefined' ? '' : window.location.search, typeof window === 'undefined' ? '/' : window.location.pathname);
 
   return (
     <>
