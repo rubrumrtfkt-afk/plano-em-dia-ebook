@@ -255,6 +255,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .chapter-info p { margin: 0; color: var(--texto-suave); font-size: 15px; line-height: 1.55; }
 .chapter-arrow { height: 30px; width: 30px; display: grid; place-items: center; border: 1px solid var(--neutro); border-radius: 50%; color: var(--verde); transition: transform 160ms ease-out, background 160ms ease-out; }
 .chapter-row:hover .chapter-arrow { transform: translate(2px, -2px); background: #FFFFFF; }
+.chapter-row-final { background: var(--verde-claro); border-bottom-color: rgba(46, 158, 107, .3); }
+.chapter-row-final:hover { background: #DCF0E4; }
+.chapter-row-final .chapter-info h3 { color: var(--verde-escuro); }
+.chapter-lock { display: inline-grid; place-items: center; height: 36px; width: 36px; padding: 0; border-radius: 50%; background: #FFFFFF; color: var(--verde-escuro); box-shadow: 0 0 0 1px rgba(46, 158, 107, .3); }
+.chapter-row-final .chapter-arrow { background: #FFFFFF; border-color: rgba(46, 158, 107, .3); }
 
 /* Citação */
 .quote-band { padding: 77px 20px 81px; text-align: center; background: var(--verde-claro); border-top: 1px solid #CDEBDB; border-bottom: 1px solid #CDEBDB; }
@@ -376,7 +381,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .float-note { padding: 10px 12px; }
   .float-note b { font-size: 15px; }
   .float-note small { font-size: 14px; }
-  .hero-bottom { height: 40px; padding: 0 20px; font-size: 12px; }
+  .hero-bottom { height: 40px; padding: 0 20px; font-size: 12px; justify-content: center; }
+  .hero-bottom > span:first-child, .hero-bottom .bottom-rule { display: none; }
   .value-strip { min-height: 103px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 12px; padding: 20px; }
   .value-strip div { font-size: 15px; align-items: flex-start; }
   .value-strip > i { display: none; }
@@ -416,6 +422,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .contents-stamp small { font-size: 15px; }
   .chapter-row { grid-template-columns: 1fr 28px; gap: 4px 10px; padding: 16px 2px; }
   .chapter-number { grid-column: 1 / -1; padding: 0; font-size: 14px; }
+  .chapter-row-final { padding-left: 12px; padding-right: 10px; }
   .chapter-info h3 { font-size: 18px; }
   .chapter-info p { font-size: 16px; }
   .quote-band { padding: 56px 20px 60px; }

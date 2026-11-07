@@ -20,7 +20,17 @@ test('lista 10 capítulos em ordem', () => {
   expect(capitulos.map(([, titulo]) => titulo)).toEqual(TITULOS);
   render(<App />);
   const lista = screen.getByRole('list', { name: 'Capítulos do guia' });
-  expect(within(lista).getAllByRole('heading').map((h) => h.textContent)).toEqual(TITULOS);
+  expect(within(lista).getAllByRole('heading').map((h) => h.textContent)).toEqual([...TITULOS, 'Seu Plano de 30 Dias']);
+});
+
+test('lista fecha com o plano liberado ao concluir; cap. 9 não promete o plano', () => {
+  const { container } = render(<App />);
+  const final = container.querySelector('.chapter-list li:last-child .chapter-row-final');
+  expect(final.querySelector('h3').textContent).toBe('Seu Plano de 30 Dias');
+  expect(final.querySelector('p').textContent).toMatch(/^Liberado quando você conclui os capítulos/);
+  expect(final.querySelector('.chapter-lock svg')).not.toBeNull();
+  expect(capitulos.at(-1)[2]).toBe('Junte o que você aprendeu e prepare o seu plano.');
+  expect(container.querySelector('.hero-bottom').textContent).toContain('9 CAPÍTULOS + SEU PLANO DE 30 DIAS');
 });
 
 test('FAQ de entrega menciona Kiwify', () => {

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   ArrowDown, ArrowRight, ArrowUpRight, BadgeCheck, ChevronDown, CircleHelp, ClipboardCheck,
-  LayoutList, Menu, MessageCircleQuestion, MoveUpRight, ShieldCheck, Smartphone, X,
+  LayoutList, LockKeyholeOpen, Menu, MessageCircleQuestion, MoveUpRight, ShieldCheck, Smartphone, X,
 } from 'lucide-react';
 import { ebook } from './content';
 import { checkoutComOrigem } from './utm';
-import { beneficios, capitulos, faqs, oferta } from './dados';
+import { beneficios, capitulos, fechamento, faqs, oferta } from './dados';
 import MockupCelular from './MockupCelular';
 import './styles.css';
 
@@ -67,7 +67,7 @@ export function App() {
             </div>
             <MockupCelular />
           </div>
-          <div className="hero-bottom" aria-hidden="true"><span>EDUCAÇÃO FINANCEIRA SEM COMPLICAÇÃO</span><span>PREFÁCIO + 9 CAPÍTULOS <span className="bottom-rule"/></span></div>
+          <div className="hero-bottom" aria-hidden="true"><span>EDUCAÇÃO FINANCEIRA SEM COMPLICAÇÃO</span><span>9 CAPÍTULOS + SEU PLANO DE 30 DIAS <span className="bottom-rule"/></span></div>
         </section>
 
         <section className="value-strip" aria-label="Características do guia">
@@ -95,7 +95,7 @@ export function App() {
 
         <section className="contents section-pad" id="conteudo">
           <div className="contents-intro"><Reveal><span className="eyebrow"><span className="eyebrow-dot"/> POR DENTRO DO GUIA</span><h2>Um mapa para<br/><span>seguir no seu ritmo.</span></h2><p>Prefácio e 9 capítulos em cards curtos. Cada capítulo termina com uma prática simples para a vida real.</p><div className="contents-stamp"><span className="stamp-circle"><LayoutList size={22}/></span><span><b>Do primeiro passo</b><small>ao seu plano de 30 dias</small></span></div></Reveal></div>
-          <ol className="chapter-list" aria-label="Capítulos do guia">{capitulos.map(([n, title, text], i) => <li key={title}><Reveal delay={i * 40}><article className="chapter-row"><span className="chapter-number">{n}</span><div className="chapter-info"><h3>{title}</h3><p>{text}</p></div><span className="chapter-arrow" aria-hidden="true"><ArrowUpRight size={18}/></span></article></Reveal></li>)}</ol>
+          <ol className="chapter-list" aria-label="Capítulos do guia">{capitulos.map(([n, title, text], i) => <li key={title}><Reveal delay={i * 40}><article className="chapter-row"><span className="chapter-number">{n}</span><div className="chapter-info"><h3>{title}</h3><p>{text}</p></div><span className="chapter-arrow" aria-hidden="true"><ArrowUpRight size={18}/></span></article></Reveal></li>)}<li><Reveal delay={capitulos.length * 40}><article className="chapter-row chapter-row-final"><span className="chapter-number chapter-lock" aria-hidden="true"><LockKeyholeOpen size={20}/></span><div className="chapter-info"><h3>{fechamento.titulo}</h3><p>{fechamento.texto}</p></div><span className="chapter-arrow" aria-hidden="true"><ArrowUpRight size={18}/></span></article></Reveal></li></ol>
         </section>
 
         <section className="quote-band"><Reveal><span className="quote-mark" aria-hidden="true">“</span><blockquote>Você não precisa ter tudo resolvido.<br/><em>Só precisa saber qual é o próximo passo.</em></blockquote><span className="quote-credit">UMA IDEIA QUE GUIA O PLANO EM DIA</span></Reveal></section>

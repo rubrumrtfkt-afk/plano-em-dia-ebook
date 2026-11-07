@@ -34,8 +34,14 @@ export const capitulos = [
   ['06', 'Como ganhar mais dinheiro e aumentar sua renda', 'Encontre caminhos para aumentar a sua capacidade de gerar renda.'],
   ['07', 'Como começar a investir', 'Entenda o que vem antes de investir e os conceitos básicos para começar.'],
   ['08', 'O comportamento por trás do dinheiro', 'Desenvolva hábitos mais saudáveis e aprenda a lidar com as emoções.'],
-  ['09', 'Seu plano de ação: o que fazer a partir de agora', 'Transforme o que aprendeu em um plano de 30 dias com checklist.'],
+  ['09', 'Seu plano de ação: o que fazer a partir de agora', 'Junte o que você aprendeu e prepare o seu plano.'],
 ];
+
+// Fechamento da lista: o plano é conquistado ao terminar os capítulos.
+export const fechamento = {
+  titulo: 'Seu Plano de 30 Dias',
+  texto: 'Liberado quando você conclui os capítulos: um roteiro personalizado com checklist, metas para 12 meses e planilha modelo.',
+};
 
 export const faqs = [
   [
