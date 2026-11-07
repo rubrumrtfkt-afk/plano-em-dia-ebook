@@ -367,7 +367,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .eyebrow { font-size: 14px; letter-spacing: 1px; }
   .hero h1 { font-size: 38px; letter-spacing: -1.4px; margin: 20px 0 14px; }
   .price-tag { font-size: 15px; }
-  .price-tag-hero { margin-top: 18px; }
+  .price-tag-hero { display: flex; width: fit-content; margin: 18px auto 0; }
   .hero-lede { font-size: 18px; max-width: 380px; }
   .hero-actions { gap: 12px; margin-top: 24px; flex-direction: column; align-items: stretch; }
   .button { padding: 15px 18px; font-size: 18px; }
