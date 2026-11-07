@@ -101,3 +101,12 @@ test('FAQ 07 explica o reembolso de 7 dias pela Kiwify', () => {
   const indices = [...container.querySelectorAll('.faq-index')].map((n) => n.textContent);
   expect(indices.at(-1)).toBe('07');
 });
+
+test('oferta mostra a garantia, usa a grade do simulador e não tem os círculos decorativos', () => {
+  const { container } = render(<App />);
+  const oferta = container.querySelector('#oferta');
+  expect(oferta.querySelector('.offer-notes').textContent).toContain('7 dias de garantia');
+  expect(oferta.querySelector('.offer-notes').textContent).not.toContain('No celular ou no computador');
+  expect(oferta.querySelector('.simulator-grid-bg')).not.toBeNull();
+  expect(oferta.querySelector('.offer-orb, .offer-decoration')).toBeNull();
+});
