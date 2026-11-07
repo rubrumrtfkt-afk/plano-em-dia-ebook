@@ -62,7 +62,6 @@ export function App() {
                 <a className="button button-primary" href="#oferta">Conhecer o guia <ArrowRight size={20}/></a>
                 <a className="text-link" href="#conteudo"><span className="play-circle"><ArrowDown size={16}/></span> Ver os capítulos</a>
               </div>
-              <Preco className="price-tag-hero"/>
               <div className="hero-proof"><ShieldCheck size={22} color="#1F6B4A"/><p>Pouco texto por tela, letra grande e nenhum julgamento.</p></div>
             </div>
             <MockupCelular />

@@ -95,10 +95,11 @@ test('headline toca na dor de quem não sabe para onde foi o dinheiro', () => {
   expect(screen.getByText('Organize seu salário em 30 dias, mesmo começando do zero.')).toBeInTheDocument();
 });
 
-test('preço aparece no topo e logo antes do botão de checkout', () => {
+test('preço aparece só logo antes do botão de checkout (não no topo)', () => {
   const { container } = render(<App />);
   const precos = container.querySelectorAll('.price-tag');
-  expect(precos).toHaveLength(2);
+  expect(precos).toHaveLength(1);
+  expect(container.querySelector('.hero .price-tag')).toBeNull();
   for (const p of precos) expect(p.textContent).toBe('R$ 29,90 à vista ou 3x no cartãomenos que um delivery');
   const botao = container.querySelector('#oferta .button-white');
   expect(botao.previousElementSibling).toHaveClass('price-tag');
