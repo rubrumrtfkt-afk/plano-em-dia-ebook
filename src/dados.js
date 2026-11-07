@@ -62,4 +62,15 @@ export const faqs = [
     'O pagamento é seguro?',
     'Sim. Todo o processamento é feito pela Kiwify, com pagamento via Pix, cartão de crédito ou boleto.',
   ],
+  [
+    'E se eu não gostar?',
+    'Você pode pedir reembolso em até 7 dias pela Kiwify, como prevê a lei.',
+  ],
 ];
+
+// Preço exibido perto dos botões de compra (conferir com o valor na Kiwify).
+export const oferta = {
+  preco: 'R$ 29,90',
+  condicoes: 'à vista ou 3x no cartão',
+  chamariz: 'menos que um delivery',
+};

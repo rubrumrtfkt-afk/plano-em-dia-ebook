@@ -78,3 +78,26 @@ test('contato do FAQ mostra o e-mail visível e com mailto', () => {
   expect(link).toHaveAttribute('href', `mailto:${ebook.contactEmail}`);
   expect(link.textContent).toContain(ebook.contactEmail);
 });
+
+test('headline toca na dor de quem não sabe para onde foi o dinheiro', () => {
+  render(<App />);
+  expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('Chega no fim do mês e não sabe para onde foi o dinheiro?');
+  expect(screen.getByText('Organize seu salário em 30 dias, mesmo começando do zero.')).toBeInTheDocument();
+});
+
+test('preço aparece no topo e logo antes do botão de checkout', () => {
+  const { container } = render(<App />);
+  const precos = container.querySelectorAll('.price-tag');
+  expect(precos).toHaveLength(2);
+  for (const p of precos) expect(p.textContent).toBe('R$ 29,90 à vista ou 3x no cartãomenos que um delivery');
+  const botao = container.querySelector('#oferta .button-white');
+  expect(botao.previousElementSibling).toHaveClass('price-tag');
+});
+
+test('FAQ 07 explica o reembolso de 7 dias pela Kiwify', () => {
+  expect(faqs).toHaveLength(7);
+  expect(faqs[6]).toEqual(['E se eu não gostar?', 'Você pode pedir reembolso em até 7 dias pela Kiwify, como prevê a lei.']);
+  const { container } = render(<App />);
+  const indices = [...container.querySelectorAll('.faq-index')].map((n) => n.textContent);
+  expect(indices.at(-1)).toBe('07');
+});

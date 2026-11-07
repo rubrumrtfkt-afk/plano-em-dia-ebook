@@ -74,9 +74,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .eyebrow { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; letter-spacing: 1.4px; color: var(--verde-escuro); }
 .eyebrow-dot { height: 7px; width: 7px; display: inline-block; border-radius: 50%; background: var(--verde); box-shadow: 0 0 0 4px rgba(46, 158, 107, .16); }
 .eyebrow-line { width: 41px; height: 1px; background: var(--neutro); margin-left: 5px; }
-.hero h1 { font: 700 clamp(50px, 6vw, 76px)/1.04 Manrope, sans-serif; letter-spacing: -3.5px; margin: 25px 0 20px; color: var(--texto); }
+.hero h1 { font: 700 clamp(42px, 4.6vw, 60px)/1.06 Manrope, sans-serif; letter-spacing: -2.4px; margin: 25px 0 20px; color: var(--texto); }
 .hero h1 span { color: var(--verde-escuro); }
 .hero-lede { color: var(--texto-suave); font-size: 19px; line-height: 1.65; max-width: 480px; margin: 0; }
+.hero-lede strong { color: var(--texto); }
 .hero-actions { display: flex; align-items: center; gap: 28px; margin-top: 30px; }
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 52px; border: 0; border-radius: 12px;
@@ -95,6 +96,25 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .proof-avatars span:nth-child(3) { background: #DCEBC9; color: #3E5A23; }
 .proof-avatars span:nth-child(4) { background: var(--neutro); color: var(--texto); }
 .hero-proof p { margin: 0; color: var(--texto-suave); font-size: 15px; }
+
+/* Preço perto dos botões de compra */
+.price-tag {
+  position: relative; display: inline-flex; align-items: center; gap: 12px; margin: 0; padding: 10px 16px 10px 14px;
+  border-radius: 14px; font-size: 16px; line-height: 1.35; text-align: left;
+  animation: price-glow 2.6s ease-in-out infinite;
+}
+.price-tag b { font: 800 19px/1 Manrope, sans-serif; letter-spacing: -.3px; }
+.price-hook { display: block; font-weight: 700; }
+.price-pulse { position: relative; flex: none; height: 10px; width: 10px; border-radius: 50%; background: currentColor; }
+.price-pulse::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: currentColor; animation: price-ping 2.6s ease-out infinite; }
+.price-tag-hero { margin-top: 22px; color: var(--verde-escuro); background: var(--verde-claro); border: 1px solid rgba(46, 158, 107, .28); --glow: rgba(46, 158, 107, .28); }
+.price-tag-hero > span:last-child { color: var(--texto); }
+.price-tag-hero b, .price-tag-hero .price-hook { color: var(--verde-escuro); }
+.price-tag-offer { margin-top: 24px; color: #FFFFFF; background: rgba(255, 255, 255, .1); border: 1px solid rgba(232, 246, 238, .35); --glow: rgba(232, 246, 238, .3); }
+.price-tag-offer .price-pulse { color: #BFE6D1; }
+.price-tag-offer .price-hook { color: #BFE6D1; }
+@keyframes price-ping { 0% { transform: scale(1); opacity: .7; } 70%, 100% { transform: scale(2.8); opacity: 0; } }
+@keyframes price-glow { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 0 6px var(--glow); } }
 .hero-bottom {
   height: 42px; position: absolute; bottom: 0; left: 0; right: 0; border-top: 1px solid var(--neutro);
   padding: 0 max(calc((100vw - 1130px) / 2), 5.3vw); display: flex; align-items: center; justify-content: space-between;
@@ -276,7 +296,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .offer-content > .eyebrow { justify-content: center; }
 .offer-content h2 { margin: 20px 0 12px; }
 .offer-content h2 em { font-style: normal; color: #BFE6D1; }
-.offer-content > p { margin: 0 auto; color: var(--verde-claro); font-size: 18px; line-height: 1.6; max-width: 520px; }
+.offer-content > p:not(.price-tag) { margin: 0 auto; color: var(--verde-claro); font-size: 18px; line-height: 1.6; max-width: 520px; }
+.offer-content .button-white { display: flex; width: fit-content; margin: 16px auto 0; }
 .button-white { margin-top: 24px; padding: 15px 24px; color: var(--verde-noite); background: #FFFFFF; }
 .button-white:hover { background: var(--verde-claro); box-shadow: 0 8px 22px rgba(0, 0, 0, .18); }
 .offer-notes { display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 20px; color: var(--verde-claro); font-size: 15px; }
@@ -354,7 +375,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .hero-inner { display: flex; flex-direction: column; align-items: stretch; margin: 0; padding: 44px 20px 70px; gap: 0; }
   .hero-copy { padding: 0; }
   .eyebrow { font-size: 14px; letter-spacing: 1px; }
-  .hero h1 { font-size: 46px; letter-spacing: -2px; margin: 20px 0 14px; }
+  .hero h1 { font-size: 38px; letter-spacing: -1.4px; margin: 20px 0 14px; }
+  .price-tag { font-size: 15px; }
+  .price-tag-hero { margin-top: 18px; }
   .hero-lede { font-size: 18px; max-width: 380px; }
   .hero-actions { gap: 12px; margin-top: 24px; flex-direction: column; align-items: stretch; }
   .button { padding: 15px 18px; font-size: 18px; }
@@ -424,7 +447,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .offer-section { min-height: 400px; }
   .offer-content { padding: 60px 20px; }
   .offer-content h2 { font-size: 38px; }
-  .offer-content > p { max-width: 340px; font-size: 17px; }
+  .offer-content > p:not(.price-tag) { max-width: 340px; font-size: 17px; }
   .offer-notes { flex-direction: column; gap: 10px; margin-top: 18px; font-size: 15px; }
   .offer-notes i { display: none; }
   .offer-decoration { opacity: .15; right: -100px; top: 45%; transform: scale(.7); }
@@ -437,4 +460,5 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+  .price-tag, .price-pulse::after { animation: none !important; }
 }

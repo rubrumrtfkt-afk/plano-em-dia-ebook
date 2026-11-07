@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { ebook } from './content';
 import { checkoutComOrigem } from './utm';
-import { beneficios, capitulos, faqs } from './dados';
+import { beneficios, capitulos, faqs, oferta } from './dados';
 import MockupCelular from './MockupCelular';
 import './styles.css';
 
@@ -23,6 +23,10 @@ function Reveal({ children, className = '', delay = 0 }) {
     return () => observer.disconnect();
   }, [id]);
   return <div data-reveal-id={id} className={`reveal ${visible ? 'is-visible' : ''} ${className}`} style={{ '--reveal-delay': `${delay}ms` }}>{children}</div>;
+}
+
+export function Preco({ className = '' }) {
+  return <p className={`price-tag ${className}`}><span className="price-pulse" aria-hidden="true"/><span><b>{oferta.preco}</b> {oferta.condicoes}<span className="price-hook">{oferta.chamariz}</span></span></p>;
 }
 
 export function App() {
@@ -52,12 +56,13 @@ export function App() {
           <div className="hero-inner">
             <div className="hero-copy">
               <div className="eyebrow"><span className="eyebrow-dot"/> GUIA INTERATIVO DE EDUCAÇÃO FINANCEIRA <span className="eyebrow-line"/></div>
-              <h1>Seu dinheiro,<br/><span>com direção.</span></h1>
-              <p className="hero-lede">Um guia em cards, feito para o celular: você responde perguntas sobre a sua vida, descobre por onde começar e sai com um plano de 30 dias.</p>
+              <h1>Chega no fim do mês e <span>não sabe para onde foi o dinheiro?</span></h1>
+              <p className="hero-lede"><strong>Organize seu salário em 30 dias, mesmo começando do zero.</strong> Um guia em cards, feito para o celular: você responde perguntas sobre a sua vida e descobre por onde começar.</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#oferta">Conhecer o guia <ArrowRight size={20}/></a>
                 <a className="text-link" href="#conteudo"><span className="play-circle"><ArrowDown size={16}/></span> Ver os capítulos</a>
               </div>
+              <Preco className="price-tag-hero"/>
               <div className="hero-proof"><ShieldCheck size={22} color="#1F6B4A"/><p>Pouco texto por tela, letra grande e nenhum julgamento.</p></div>
             </div>
             <MockupCelular />
@@ -97,7 +102,7 @@ export function App() {
 
         <section className="faq-section section-pad" id="duvidas"><div className="faq-layout"><Reveal className="faq-intro"><span className="eyebrow"><span className="eyebrow-dot"/> ANTES DE COMEÇAR</span><h2>Dúvidas<br/><span>frequentes.</span></h2><p>Ainda quer entender melhor? Aqui estão as respostas mais importantes.</p><div className="faq-aside"><CircleHelp size={20}/><span>Não encontrou sua dúvida?<br/>Fale com a gente:<br/><a href={`mailto:${ebook.contactEmail}`}>{ebook.contactEmail} <ArrowUpRight size={15}/></a></span></div></Reveal><div className="faq-list">{faqs.map(([question, answer], i) => <Reveal key={question} delay={i * 45}><article className={`faq-item ${openFaq === i ? 'faq-open' : ''}`}><button aria-expanded={openFaq === i} onClick={() => setOpenFaq(openFaq === i ? -1 : i)}><span className="faq-index">0{i + 1}</span><span>{question}</span><ChevronDown size={20}/></button><div className="faq-answer"><p>{answer}</p></div></article></Reveal>)}</div></div></section>
 
-        <section className="offer-section" id="oferta"><div className="offer-orb orb-a"/><div className="offer-orb orb-b"/><Reveal className="offer-content"><span className="eyebrow light-eyebrow"><span className="eyebrow-dot"/> O PRÓXIMO PASSO É SEU</span><h2>Seu plano começa<br/>com <em>uma escolha.</em></h2><p>Responda, reflita e saia com um plano de 30 dias para a sua vida financeira.</p><a className="button button-white" href={checkout} target="_blank" rel="noreferrer">Quero meu guia interativo <MoveUpRight size={19}/></a><div className="offer-notes"><span><BadgeCheck size={17}/> Acesso pela área de membros da Kiwify</span><i/><span><BadgeCheck size={17}/> No celular ou no computador</span><i/><span><BadgeCheck size={17}/> Planilha modelo inclusa</span></div></Reveal><div className="offer-decoration" aria-hidden="true"><div className="dec-ring ring-large"/><div className="dec-ring ring-small"/><span>PLANO<br/>EM DIA</span><div className="dec-spark">✳</div></div></section>
+        <section className="offer-section" id="oferta"><div className="offer-orb orb-a"/><div className="offer-orb orb-b"/><Reveal className="offer-content"><span className="eyebrow light-eyebrow"><span className="eyebrow-dot"/> O PRÓXIMO PASSO É SEU</span><h2>Seu plano começa<br/>com <em>uma escolha.</em></h2><p>Responda, reflita e saia com um plano de 30 dias para a sua vida financeira.</p><Preco className="price-tag-offer"/><a className="button button-white" href={checkout} target="_blank" rel="noreferrer">Quero meu guia interativo <MoveUpRight size={19}/></a><div className="offer-notes"><span><BadgeCheck size={17}/> Acesso pela área de membros da Kiwify</span><i/><span><BadgeCheck size={17}/> No celular ou no computador</span><i/><span><BadgeCheck size={17}/> Planilha modelo inclusa</span></div></Reveal><div className="offer-decoration" aria-hidden="true"><div className="dec-ring ring-large"/><div className="dec-ring ring-small"/><span>PLANO<br/>EM DIA</span><div className="dec-spark">✳</div></div></section>
       </main>
 
       <footer className="site-footer"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><span/><span/><span/></span><span>plano<span className="brand-dot">.</span>em dia</span></a><span>Conteúdo educativo. Não é recomendação de investimento.</span><span>© 2026 Plano em Dia</span></footer>
